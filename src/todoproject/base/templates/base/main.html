@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+      body{
+      background-color: #9FCAE8;
+      font-family: 'Roboto', sans-serif;
+      padding:10vh;
+      }
+
+      .container{
+      max-width: 70vw;
+      margin:auto;
+      background-color: #C7DBEA;
+      padding: 5vw;
+      -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0.21);
+      box.shadow: 2px 2px 13px -4px rgba(0,0,0.21);
+      border-radius: 15px;
+      }
+
+      .navbar{
+      display: flex;
+      display-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2vw;
+      padding: 2vh;
+      background: linear-gradient(90deg, #9FCAE8 0%, #7EA4BE 100%);
+      border-radius: 15px;
+      }
+
+
+      .header{
+      display:flex;
+      flex-direction: row;
+      align-item: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 2vh;
+      }
+
+      .card-container{
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2vh;
+      padding: 5vh
+      }
+
+      .sub-container{
+      display: flex;
+      flex-direction: column;
+      min-width: 30vw;
+      gap: 2vh;
+      }
+
+      .card{
+      max-width:40vw;
+      display:flex;
+      flex-direction:row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background-color: #9FCAE8;
+      border-radius: 15px;
+      }
+
+      a{
+      text-decoration:none;
+      color:black;
+      }
+
+      a:hover{
+      font-size: 1.2em;
+      }
+
+      .btn{
+      background-color:#9FCAE8;
+      border-radius: 0.5vw;
+      }
+
+      .btn:hover{
+      font-size: 1.2em;
+      }
+
+      .find {
+      border-radius: 1vw;
+      border: 0;
+      height: 3vh;
+      width: 0.75em;
+      }
+
+      .find:hover{
+      width: 20em;
+      }
+
+      .find:focus{
+      width: 20em;
+      }
+
+      .form{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px 0;
+      }
+
+    </style>
+
+</head>
+<body>
+
+  <div class="container">
+    {% block content %}
+
+    {% endblock content %}
+
+  </div>
+
+</body>
+</html>

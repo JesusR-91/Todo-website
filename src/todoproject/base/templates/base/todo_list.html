@@ -1,0 +1,76 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+    <div class="navbar">
+        <div>
+            <p>Hello {{request.user|title}}</p>
+            <p>Today you have {{count}} task{{count|pluralize}} to do</p>
+        </div>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+{% else %}
+    <div class="navbar">
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+{% endif %}
+
+<div class="header">
+    <button class="btn"><a href="{% url 'create-todo' %}">Add</a></button>
+
+    <br>
+
+    <form method="GET">
+        <input class="find" type="text" name="find-area" value="{{found_value}}">
+        <input class="btn" type="submit" value="Find">
+    </form>
+</div>
+
+
+<div class = "card-container">
+    <div>
+        <h1>Your task{{count|pluralize}}:</h1>
+    </div>
+
+    <div class = "sub-container">
+
+        <h2>To do</h2>
+
+        {% for todo in todo_list %}
+            {% if not todo.done %}
+            <div class="card">
+                <p><a href="{% url 'todo' todo.id %}">{{todo.title}}</a></p>
+                <p><a href="{% url 'update-todo' todo.id %}">✏️</a></p>
+                <p><a href="{% url 'delete-todo' todo.id %}">❌</a></p>
+            </div>
+            {% endif %}
+
+        {% empty %}
+        <h3> There's no element in your list</h3>
+        {% endfor %}
+
+    </div>
+
+    <div class = "sub-container">
+
+        <h2>Done</h2>
+
+        {% for todo in todo_list %}
+            {% if todo.done %}
+            <div class="card">
+                <p><a href="{% url 'todo' todo.id %}">{{todo.title}}</a></p>
+                <p><a href="{% url 'update-todo' todo.id %}">✏️</a></p>
+                <p><a href="{% url 'delete-todo' todo.id %}">❌</a></p>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock content %}
+

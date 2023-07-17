@@ -1,0 +1,22 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<a href="{% url 'todo-list' %}">⬅️ Back</a>
+<hr>
+
+<div class = "card-container">
+
+    <form method="POST" style="display: flex flex-direction:column">
+        {% csrf_token %}
+        <p>You're going to delete "{{todo}}", are you sure you want to do this?</p>
+        <input class="btn" type="submit" value="Delete">
+
+    </form>
+
+</div>
+
+
+{% endblock content %}
+
+

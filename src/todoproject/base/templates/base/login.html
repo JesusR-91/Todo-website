@@ -1,0 +1,30 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<div class = "card-container">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form">
+            <label>{{form.username.label}}</label>
+                {{form.username}}
+
+            <label>{{form.password.label}}</label>
+                {{form.password}}
+        </div>
+        <input class="btn" type="submit" value="Login">
+
+    </form>
+
+    <p>If you're not registered, you can do it  <a href="{% url 'signup' %}">here</a></p>
+
+</div>
+
+
+
+{% endblock content %}
+
